@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Stacked Paragraphs</title>
+        <style>
+            .box{
+                position: absolute;
+                width: 300px;
+                padding: 10px;
+                border: 1px solid black;
+                background-color: lightyellow;
+            }
+            #p1{top:0px;z-index:1;}
+            #p2{top:30px;z-index:2;}
+            #p3{top:60px;z-index:3;}
+        </style>
+    </head>
+    <body>
+        <p id="p1" class="box"
+        onmouseover="show(this,0,1)"
+        onmouseout="restore(this,0,1)">
+        paragraph 1:Techonology shapes life.
+    </p>
+        <p id="p2" class="box"
+        onmouseover="show(this,30,2)"
+        onmouseout="restore(this,30,2)">
+        paragraph 2:Innovation drives growth.
+        </p>
+        <p id="p3" class="box"
+        onmouseover="show(this,60,3)"
+        onmouseout="restore(this,60,3)">
+        paragraph 3:Knowledege is power.
+        </p>
+
+        <script>
+            function show(p ,topPos,zpos){
+                p.style.top="0px";
+                p.style.zIndex=10;
+            }
+            function restore(p,topPos,zpos){
+                p.style.top=topPos+"px";
+                p.style.zIndex=zpos;
+            }
+        </script>
+    </body>
+</html>
