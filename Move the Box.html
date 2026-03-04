@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move the Box</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #1e1e2f;
+    overflow: hidden;
+  }
+
+  .box {
+    width: 80px;
+    height: 80px;
+    background: #00c6ff;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border-radius: 10px;
+    transition: transform 0.05s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="box" id="box"></div>
+
+<script>
+  const box = document.getElementById("box");
+  let x = 100;
+  let y = 100;
+  const speed = 10;
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowUp") y -= speed;
+    if (e.key === "ArrowDown") y += speed;
+    if (e.key === "ArrowLeft") x -= speed;
+    if (e.key === "ArrowRight") x += speed;
+
+    box.style.left = x + "px";
+    box.style.top = y + "px";
+  });
+</script>
+
+</body>
+</html>
