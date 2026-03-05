@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Twinkling Stars</title>
+
+<style>
+body{
+    background:black;
+    overflow:hidden;
+}
+
+.star{
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:0.2;}
+    to{opacity:1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="star" style="top:50px; left:100px;"></div>
+<div class="star" style="top:150px; left:200px;"></div>
+<div class="star" style="top:80px; left:300px;"></div>
+<div class="star" style="top:200px; left:400px;"></div>
+<div class="star" style="top:120px; left:500px;"></div>
+
+</body>
+</html>
