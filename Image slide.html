@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Slider</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    text-align:center;
+}
+
+.slider{
+    width:600px;
+    height:350px;
+    margin:50px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.slides{
+    display:flex;
+    width:300%;
+    transition:0.5s;
+}
+
+.slides img{
+    width:600px;
+    height:350px;
+}
+
+button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:black;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+.prev{
+    left:10px;
+}
+
+.next{
+    right:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Image Slider</h2>
+
+<div class="slider">
+
+<div class="slides" id="slide">
+
+<img src="https://picsum.photos/id/1015/600/350">
+<img src="https://picsum.photos/id/1016/600/350">
+<img src="https://picsum.photos/id/1018/600/350">
+
+</div>
+
+<button class="prev" onclick="prevSlide()">❮</button>
+<button class="next" onclick="nextSlide()">❯</button>
+
+</div>
+
+<script>
+
+let index = 0;
+
+function showSlide(){
+    const slides = document.getElementById("slide");
+    slides.style.transform = "translateX(" + (-600 * index) + "px)";
+}
+
+function nextSlide(){
+    if(index < 2){
+        index++;
+    }else{
+        index = 0;
+    }
+    showSlide();
+}
+
+function prevSlide(){
+    if(index > 0){
+        index--;
+    }else{
+        index = 2;
+    }
+    showSlide();
+}
+
+</script>
+
+</body>
+</html>
