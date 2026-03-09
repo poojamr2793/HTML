@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Animated Heart</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+}
+
+.heart{
+    position:relative;
+    width:100px;
+    height:100px;
+    background:red;
+    transform:rotate(-45deg);
+    animation:beat 1s infinite;
+}
+
+.heart:before,
+.heart:after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    background:red;
+    border-radius:50%;
+}
+
+.heart:before{
+    top:-50px;
+    left:0;
+}
+
+.heart:after{
+    left:50px;
+    top:0;
+}
+
+@keyframes beat{
+    0%{
+        transform:rotate(-45deg) scale(1);
+    }
+    50%{
+        transform:rotate(-45deg) scale(1.2);
+    }
+    100%{
+        transform:rotate(-45deg) scale(1);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="heart"></div>
+
+</body>
+</html>
