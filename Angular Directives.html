@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Angular Directives Example</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+<style>
+.box{
+    border:2px solid black;
+    padding:10px;
+    margin:10px;
+}
+</style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+<h2>Angular Directives Example</h2>
+
+<!-- ng-if Directive -->
+<div ng-if="showMessage" class="box">
+    This message is shown using ng-if directive.
+</div>
+
+<button ng-click="toggle()">Show / Hide Message</button>
+
+<!-- ng-repeat Directive -->
+<h3>Student List</h3>
+<ul>
+    <li ng-repeat="student in students">
+        {{student}}
+    </li>
+</ul>
+
+<!-- ng-style Directive -->
+<div class="box" ng-style="{'background-color': color}">
+    This box color is controlled using ng-style directive
+</div>
+
+<button ng-click="changeColor()">Change Color</button>
+
+<script>
+var app = angular.module("myApp", []);
+
+app.controller("myCtrl", function($scope){
+
+$scope.showMessage = true;
+
+$scope.students = ["Rahul","Anita","Kiran","Meena"];
+
+$scope.color = "lightblue";
+
+$scope.toggle = function(){
+    $scope.showMessage = !$scope.showMessage;
+}
+
+$scope.changeColor = function(){
+    $scope.color = "lightgreen";
+}
+
+});
+</script>
+
+</body>
+</html>
