@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Teddy Bear</title>
+<style>
+
+body{
+  background:#f2f2f2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.teddy{
+  position:relative;
+}
+
+.head{
+  width:150px;
+  height:150px;
+  background:#8B5A2B;
+  border-radius:50%;
+  position:relative;
+}
+
+/* ears */
+.ear{
+  width:60px;
+  height:60px;
+  background:#8B5A2B;
+  border-radius:50%;
+  position:absolute;
+  top:-25px;
+}
+
+.ear.left{
+  left:-20px;
+}
+
+.ear.right{
+  right:-20px;
+}
+
+/* eyes */
+.eye{
+  width:20px;
+  height:20px;
+  background:black;
+  border-radius:50%;
+  position:absolute;
+  top:50px;
+}
+
+.eye.left{
+  left:35px;
+}
+
+.eye.right{
+  right:35px;
+}
+
+/* nose */
+.nose{
+  width:30px;
+  height:20px;
+  background:black;
+  border-radius:50%;
+  position:absolute;
+  top:80px;
+  left:60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="teddy">
+
+  <div class="head">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+  </div>
+
+</div>
+
+</body>
+</html>
