@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movie Search App</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:#111;
+color:white;
+}
+
+input{
+padding:10px;
+width:250px;
+}
+
+button{
+padding:10px;
+cursor:pointer;
+}
+
+#movies{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+.movie{
+background:#222;
+margin:10px;
+padding:10px;
+width:200px;
+}
+
+img{
+width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Movie Search</h1>
+
+<input type="text" id="search" placeholder="Enter movie name">
+<button onclick="searchMovie()">Search</button>
+
+<div id="movies"></div>
+
+<script>
+async function searchMovie(){
+let query = document.getElementById("search").value;
+
+let res = await fetch(`https://www.omdbapi.com/?s=${query}&apikey=YOUR_API_KEY`);
+let data = await res.json();
+
+let moviesDiv = document.getElementById("movies");
+moviesDiv.innerHTML="";
+
+data.Search.forEach(movie=>{
+moviesDiv.innerHTML += `
+<div class="movie">
+<img src="${movie.Poster}">
+<h3>${movie.Title}</h3>
+<p>${movie.Year}</p>
+</div>
+`;
+});
+}
+</script>
+
+</body>
+</html>
