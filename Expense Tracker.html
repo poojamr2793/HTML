@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Expense Tracker</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#f4f4f4;
+}
+
+.container{
+width:400px;
+margin:auto;
+background:white;
+padding:20px;
+}
+
+input{
+padding:8px;
+margin:5px;
+}
+
+button{
+padding:8px;
+cursor:pointer;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Expense Tracker</h2>
+
+<h3>Balance: ₹ <span id="balance">0</span></h3>
+
+<input type="text" id="desc" placeholder="Description">
+<input type="number" id="amount" placeholder="Amount">
+
+<button onclick="addTransaction()">Add</button>
+
+<ul id="list"></ul>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+<script>
+
+let balance = 0;
+let income = 0;
+let expense = 0;
+
+const ctx = document.getElementById('chart');
+
+const chart = new Chart(ctx, {
+type: 'pie',
+data: {
+labels: ['Income','Expense'],
+datasets: [{
+data: [0,0],
+backgroundColor:['green','red']
+}]
+}
+});
+
+function addTransaction(){
+
+let desc = document.getElementById("desc").value;
+let amount = Number(document.getElementById("amount").value);
+
+let li = document.createElement("li");
+li.innerText = desc + " : ₹" + amount;
+
+document.getElementById("list").appendChild(li);
+
+balance += amount;
+
+if(amount > 0){
+income += amount;
+}else{
+expense += Math.abs(amount);
+}
+
+document.getElementById("balance").innerText = balance;
+
+chart.data.datasets[0].data = [income, expense];
+chart.update();
+
+}
+
+</script>
+
+</body>
+</html>
