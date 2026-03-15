@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTTP Request & Response Visualizer</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+text-align:center;
+padding:20px;
+}
+
+.container{
+background:white;
+padding:20px;
+width:600px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input{
+width:70%;
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#4CAF50;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+pre{
+background:#eee;
+padding:10px;
+text-align:left;
+overflow:auto;
+}
+
+.section{
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>HTTP Request & Response Visualizer</h2>
+
+<input id="url" placeholder="Enter API URL" value="https://jsonplaceholder.typicode.com/posts/1">
+<br>
+
+<button onclick="sendRequest()">Send Request</button>
+
+<div class="section">
+
+<h3>HTTP Request</h3>
+<pre id="request"></pre>
+
+</div>
+
+<div class="section">
+
+<h3>HTTP Response</h3>
+<pre id="response"></pre>
+
+</div>
+
+</div>
+
+<script>
+
+async function sendRequest(){
+
+let url = document.getElementById("url").value;
+
+document.getElementById("request").textContent =
+"Method: GET\nURL: " + url;
+
+try{
+
+let res = await fetch(url);
+
+let data = await res.json();
+
+let responseInfo =
+"Status: " + res.status + "\n" +
+"Status Text: " + res.statusText + "\n\n" +
+JSON.stringify(data, null, 2);
+
+document.getElementById("response").textContent = responseInfo;
+
+}
+catch(error){
+
+document.getElementById("response").textContent = "Error: " + error;
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
