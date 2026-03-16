@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Click Game</title>
+<style>
+    body{
+        text-align:center;
+        font-family:Arial;
+        background:#f0f0f0;
+    }
+    #gameArea{
+        width:400px;
+        height:300px;
+        border:2px solid black;
+        margin:20px auto;
+        position:relative;
+        background:white;
+    }
+    #box{
+        width:40px;
+        height:40px;
+        background:red;
+        position:absolute;
+        cursor:pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Click the Box Game 🎯</h2>
+<p>Score: <span id="score">0</span></p>
+
+<div id="gameArea">
+    <div id="box"></div>
+</div>
+
+<script>
+let score = 0;
+const box = document.getElementById("box");
+const gameArea = document.getElementById("gameArea");
+
+function moveBox(){
+    const x = Math.random() * (gameArea.clientWidth - 40);
+    const y = Math.random() * (gameArea.clientHeight - 40);
+    box.style.left = x + "px";
+    box.style.top = y + "px";
+}
+
+box.onclick = function(){
+    score++;
+    document.getElementById("score").textContent = score;
+    moveBox();
+}
+
+moveBox();
+</script>
+
+</body>
+</html>
