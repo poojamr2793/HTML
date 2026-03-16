@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Inheritance Example</title>
+</head>
+<body>
+
+<h2>Multiple Inheritance Demo</h2>
+<button onclick="showDetails()">Show Details</button>
+
+<p id="output"></p>
+
+<script>
+// Parent class 1
+class Father {
+    fatherProperty() {
+        return "Father's Property";
+    }
+}
+
+// Parent class 2
+class Mother {
+    motherProperty() {
+        return "Mother's Property";
+    }
+}
+
+// Child class
+class Child {}
+
+// Multiple inheritance using mixins
+Object.assign(Child.prototype, Father.prototype);
+Object.assign(Child.prototype, Mother.prototype);
+
+function showDetails() {
+    const child = new Child();
+    document.getElementById("output").innerHTML =
+        child.fatherProperty() + "<br>" + child.motherProperty();
+}
+</script>
+
+</body>
+</html>
