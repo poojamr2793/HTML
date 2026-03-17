@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All CSS Animations</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  padding: 40px;
+  background: #f4f4f4;
+}
+
+/* 🔄 Loader */
+.loader {
+  margin: 20px auto;
+  border: 8px solid #ddd;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+/* 🔁 Spin */
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* 🔥 Button */
+button {
+  padding: 12px 25px;
+  background: #3498db;
+  color: white;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2ecc71;
+  transform: scale(1.1);
+}
+
+/* ⌨️ Typing */
+.typing {
+  font-size: 24px;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid black;
+  margin: 20px auto;
+  animation: typing 4s steps(30) infinite alternate;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 300px }
+}
+
+/* 🌫️ Fade */
+.fade {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* 🟦 Bounce Box */
+.box {
+  width: 50px;
+  height: 50px;
+  background: red;
+  margin: 40px auto;
+  position: relative;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { top: 0; }
+  50% { top: 80px; }
+}
+</style>
+
+</head>
+<body>
+
+<h1 class="fade">CSS Animation Demo</h1>
+
+<!-- Typing -->
+<div class="typing">Welcome to My Project</div>
+
+<!-- Loader -->
+<div class="loader"></div>
+
+<!-- Button -->
+<button>Hover Me</button>
+
+<!-- Bounce -->
+<div class="box"></div>
+
+</body>
+</html>
