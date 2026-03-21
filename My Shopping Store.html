@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 200px;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    button {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    #cart {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: white;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    #cart h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🛒 My Shopping Store</h1>
+</header>
+
+<div class="products">
+  <div class="card">
+    <img src="https://via.placeholder.com/200">
+    <h3>Product 1</h3>
+    <p>₹500</p>
+    <button onclick="addToCart('Product 1')">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200">
+    <h3>Product 2</h3>
+    <p>₹800</p>
+    <button onclick="addToCart('Product 2')">Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200">
+    <h3>Product 3</h3>
+    <p>₹1200</p>
+    <button onclick="addToCart('Product 3')">Add to Cart</button>
+  </div>
+</div>
+
+<div id="cart">
+  <h2>Cart</h2>
+  <ul id="cartItems"></ul>
+</div>
+
+<script>
+  function addToCart(product) {
+    let li = document.createElement("li");
+    li.textContent = product;
+    document.getElementById("cartItems").appendChild(li);
+  }
+</script>
+
+</body>
+</html>
